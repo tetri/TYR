@@ -41,7 +41,7 @@ class _TaskScreenState extends State<TaskScreen> {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w400,
-                fontFamily: GoogleFonts.acme.toString(),
+                fontFamily: GoogleFonts.acme().fontFamily,
               ),
             ),
           ),

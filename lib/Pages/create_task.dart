@@ -281,6 +281,13 @@ class _CreateTaskState extends State<CreateTask> {
                       return;
                     }
 
+                    if (selectedDate == null || selectedTime == null) {
+                      setState(() {
+                        error = 'Please select date and time';
+                      });
+                      return;
+                    }
+
                     LocalNotification().showNotification(
                       title: 'Task Created',
                       body: 'Your task has been created for you',

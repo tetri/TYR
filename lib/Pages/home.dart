@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w500,
-                  fontFamily: GoogleFonts.acme.toString(),
+                  fontFamily: GoogleFonts.acme().fontFamily,
                 ),
               ),
             ),

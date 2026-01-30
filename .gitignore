@@ -40,6 +40,17 @@ app.*.symbols
 app.*.map.json
 
 # Android Studio will place build artifacts here
-/android/app/debug
 /android/app/profile
 /android/app/release
+
+# Firebase Config (Native)
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Signing & Checksums
+key.properties
+**/*.keystore
+**/*.jks
+
+# Environment Variables
+.env
