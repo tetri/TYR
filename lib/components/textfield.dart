@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TheTextField extends StatelessWidget {
-  final TextEditingController? controller;
+  final TextEditingController controller;
   final String hint;
   final Icon? preIcon;
   final Icon? sufIcon;

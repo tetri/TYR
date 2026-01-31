@@ -6,6 +6,7 @@ import 'package:tyr/components/password_textfield.dart';
 import 'package:tyr/components/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tyr/logger.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 bool rememberMe = false;
@@ -93,8 +94,7 @@ class _LoginState extends State<Login> {
         );
       }
     } catch (e) {
-      // ignore: avoid_print
-      print(e);
+      appLogger.severe(e);
     }
   }
 

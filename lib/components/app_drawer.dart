@@ -39,20 +39,21 @@ class _AppdrawState extends State<Appdraw> {
     });
   }
 
+  void signOut() async {
+    final pref = await SharedPreferences.getInstance();
+    pref.remove('email');
+    pref.remove('rememberMe');
+
+    await FirebaseAuth.instance.signOut();
+    if (!mounted) return;
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Login()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    void signOut() async {
-      final pref = await SharedPreferences.getInstance();
-      pref.remove('email');
-      pref.remove('rememberMe');
-
-      FirebaseAuth.instance.signOut();
-      if (!context.mounted) return;
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const Login()),
-      );
-    }
 
     return Material(
       child: SizedBox(

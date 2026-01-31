@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tyr/Pages/home.dart';
-import 'package:tyr/logger.dart';
 import 'package:tyr/Pages/login_page.dart';
+import 'package:tyr/logger.dart';
 
 import '../components/app_drawer.dart';
 
@@ -261,7 +261,7 @@ class _CurrentUserState extends State<CurrentUser> {
     pref.remove('email');
     pref.remove('rememberMe');
 
-    FirebaseAuth.instance.signOut();
+    await FirebaseAuth.instance.signOut();
     if (!mounted) return;
     Navigator.push(
       context,
@@ -290,6 +290,7 @@ class _CurrentUserState extends State<CurrentUser> {
         appLogger.warning('Bug spotted');
       }
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         formatCreationTime = 'Error fetching creation time';
       });

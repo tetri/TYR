@@ -63,6 +63,7 @@ class _CreateTaskState extends State<CreateTask> {
     );
 
     if (pickedDate != null) {
+      if (!context.mounted) return;
       setState(() {
         formateDateTime = DateFormat('dd-MM-yyyy').format(_dateTime);
         selectedDate = pickedDate;
