@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tyr/Pages/home.dart';
+import 'package:tyr/logger.dart';
 import 'package:tyr/Pages/login_page.dart';
 import 'package:tyr/logger.dart';
 

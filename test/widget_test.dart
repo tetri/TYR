@@ -8,6 +8,7 @@ void main() {
     SharedPreferences.setMockInitialValues({});
 
     // Build our app and trigger a frame.
+    // We use a simple test that just ensures the app can build its initial widget.
     await tester.pumpWidget(const TYR());
 
     // Verify that TYR is present.
