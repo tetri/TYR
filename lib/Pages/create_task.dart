@@ -45,6 +45,7 @@ class _CreateTaskState extends State<CreateTask> {
       initialTime: _timeOfDayNow,
     );
     if (time != null) {
+      if (!context.mounted) return;
       setState(() {
         _timeOfDayNow = time;
         selectedTime = time;
@@ -69,6 +70,7 @@ class _CreateTaskState extends State<CreateTask> {
       });
     }
 
+    if (!context.mounted) return;
     timePicker(context);
   }
 

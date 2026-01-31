@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
     bool remember = pref.getBool('rememberMe') ?? false;
 
     if (usser != null && usser.isNotEmpty && remember) {
-      // ignore: use_build_context_synchronously
+      if (!mounted) return;
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: ((context) => const Home())));
     } else {
@@ -71,6 +71,7 @@ class _LoginState extends State<Login> {
         email: email.text,
         password: password.text,
       );
+      if (!mounted) return;
       Navigator.push(
         context,
         MaterialPageRoute(
