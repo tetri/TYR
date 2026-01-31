@@ -20,12 +20,11 @@ class _SplashState extends State<Splash> {
   void checkLogin() async {
     final pref = await SharedPreferences.getInstance();
     bool remember = pref.getBool('rememberMe') ?? false;
+    if (!mounted) return;
     if (remember) {
-      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const Home()));
     } else {
-      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const Login()));
     }

@@ -29,7 +29,7 @@ class TYR extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(useMaterial3: true).copyWith(
         scaffoldBackgroundColor: Colors.black,
-        appBarTheme: const AppBarTheme(color: Colors.black),
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: onBoard,

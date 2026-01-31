@@ -76,7 +76,7 @@ class TheCard extends StatelessWidget {
                   ),
                 ),
               ),
-              ButtonBar(
+              OverflowBar(
                 alignment: MainAxisAlignment.start,
                 children: [
                   TextButton(

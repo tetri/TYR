@@ -6,6 +6,7 @@ import 'package:tyr/components/password_textfield.dart';
 import 'package:tyr/components/textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tyr/logger.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 bool rememberMe = false;
@@ -41,7 +42,7 @@ class _LoginState extends State<Login> {
     bool remember = pref.getBool('rememberMe') ?? false;
 
     if (usser != null && usser.isNotEmpty && remember) {
-      // ignore: use_build_context_synchronously
+      if (!mounted) return;
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: ((context) => const Home())));
     } else {
@@ -71,6 +72,7 @@ class _LoginState extends State<Login> {
         email: email.text,
         password: password.text,
       );
+      if (!mounted) return;
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -92,8 +94,7 @@ class _LoginState extends State<Login> {
         );
       }
     } catch (e) {
-      // ignore: avoid_print
-      print(e);
+      appLogger.severe(e);
     }
   }
 

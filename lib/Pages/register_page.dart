@@ -29,7 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
         );
         final pref = await SharedPreferences.getInstance();
         pref.setString('username', username.text);
-        // ignore: use_build_context_synchronously
+        if (!mounted) return;
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -110,7 +110,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     signUp();
                   },
                   style: const ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(Colors.black),
+                    backgroundColor: WidgetStatePropertyAll(Colors.black),
                   ),
                   child: Text(
                     'Register!',
