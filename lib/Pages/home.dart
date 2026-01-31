@@ -5,6 +5,7 @@ import 'package:tyr/components/gradient_button.dart';
 import 'package:tyr/components/app_drawer.dart';
 import 'package:tyr/components/card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tyr/logger.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -70,7 +71,7 @@ class _HomeState extends State<Home> {
                   const SizedBox(width: 10),
                   TheCard(
                     onTap: () {
-                      print('Card 1 has been clicked');
+                      appLogger.info('Card 1 has been clicked');
                     },
                     imageLink:
                         'https://images.unsplash.com/photo-1603518784337-07df4f1895e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
@@ -79,7 +80,7 @@ class _HomeState extends State<Home> {
                   ),
                   TheCard(
                     onTap: () {
-                      print('Card 2 has been clicked');
+                      appLogger.info('Card 2 has been clicked');
                     },
                     imageLink:
                         'https://images.unsplash.com/photo-1603518784337-07df4f1895e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
@@ -88,7 +89,7 @@ class _HomeState extends State<Home> {
                   ),
                   TheCard(
                     onTap: () {
-                      print('Card 3 has been clicked');
+                      appLogger.info('Card 3 has been clicked');
                     },
                     imageLink:
                         'https://images.unsplash.com/photo-1603518784337-07df4f1895e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
@@ -112,7 +113,7 @@ class _HomeState extends State<Home> {
                       builder: ((context) => const CreateTask()),
                     ),
                   );
-                  print('Button pressed to create task');
+                  appLogger.info('Button pressed to create task');
                 },
                 text: 'Click me to Create',
                 fontSize: 18,

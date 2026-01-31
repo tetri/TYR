@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tyr/Pages/home.dart';
+import 'package:tyr/logger.dart';
 import 'package:tyr/Pages/login_page.dart';
 
 import '../components/app_drawer.dart';
@@ -37,7 +38,7 @@ class _CurrentUserState extends State<CurrentUser> {
     await curUser!.reauthenticateWithCredential(cred).then((value) {
       curUser!.updatePassword(newPassword);
     }).catchError((error) {
-      print(error.toString());
+      appLogger.severe(error.toString());
     });
   }
 
@@ -261,6 +262,7 @@ class _CurrentUserState extends State<CurrentUser> {
     pref.remove('rememberMe');
 
     FirebaseAuth.instance.signOut();
+    if (!mounted) return;
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const Login()),
@@ -285,13 +287,13 @@ class _CurrentUserState extends State<CurrentUser> {
           formatCreationTime = DateFormat('dd MMMM yyyy').format(creationTime);
         });
       } else {
-        print('Bug spotted');
+        appLogger.warning('Bug spotted');
       }
     } catch (e) {
       setState(() {
         formatCreationTime = 'Error fetching creation time';
       });
-      print(e.toString());
+      appLogger.severe(e.toString());
     }
   }
 

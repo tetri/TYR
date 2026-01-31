@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CharacterLimitTextField extends StatefulWidget {
-  final controller;
+  final TextEditingController? controller;
   final String? hint;
   final int? lines;
 

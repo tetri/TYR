@@ -21,11 +21,11 @@ class _SplashState extends State<Splash> {
     final pref = await SharedPreferences.getInstance();
     bool remember = pref.getBool('rememberMe') ?? false;
     if (remember) {
-      // ignore: use_build_context_synchronously
+      if (!mounted) return;
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const Home()));
     } else {
-      // ignore: use_build_context_synchronously
+      if (!mounted) return;
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => const Login()));
     }

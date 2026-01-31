@@ -47,6 +47,7 @@ class _AppdrawState extends State<Appdraw> {
       pref.remove('rememberMe');
 
       FirebaseAuth.instance.signOut();
+      if (!context.mounted) return;
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const Login()),
