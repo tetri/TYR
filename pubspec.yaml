@@ -39,7 +39,7 @@ dependencies:
   firebase_auth: ^6.1.4
 
   # Misc Packages
-  shared_preferences: ^2.1.1
+  shared_preferences: ^2.5.4
   cloud_firestore: ^6.1.2
   intl: ^0.20.2
   flutter_local_notifications: ^19.5.0
