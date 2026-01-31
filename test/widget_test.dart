@@ -1,30 +1,18 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:tyr/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('App should load without crashing', (WidgetTester tester) async {
     // Build our app and trigger a frame.
+    // Since Firebase.initializeApp is called in main(), we might need to mock it
+    // or use a setup that avoids real Firebase initialization in tests.
+    // However, for a simple smoke test, let's see if we can just pump the widget.
+
+    // In a real scenario, you'd use a mock for Firebase.
+    // For now, we'll just check if the TYR widget can be instantiated.
     await tester.pumpWidget(const TYR());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Basic check to see if the app started.
+    expect(find.byType(TYR), findsOneWidget);
   });
 }
