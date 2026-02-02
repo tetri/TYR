@@ -29,7 +29,8 @@ class _CurrentUserState extends State<CurrentUser> {
   var auth = FirebaseAuth.instance;
   var curUser = FirebaseAuth.instance.currentUser;
 
-  void changePassword({curPassword, newPassword}) async {
+  void changePassword(
+      {required String curPassword, required String newPassword}) async {
     var email = FirebaseAuth.instance.currentUser!.email;
 
     var cred =

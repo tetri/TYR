@@ -9,7 +9,7 @@ class LocalNotification {
         const AndroidInitializationSettings('@mipmap/ic_launcher');
 
     var initSettings = InitializationSettings(android: initializationSettings);
-    await notificationsPlugin.initialize(initSettings);
+    await notificationsPlugin.initialize(settings: initSettings);
   }
 
   NotificationDetails notificationDetails() {
@@ -24,6 +24,12 @@ class LocalNotification {
 
   Future showNotification(
       {int id = 0, String? title, String? body, String? payload}) async {
-    return notificationsPlugin.show(id, title, body, notificationDetails());
+    return notificationsPlugin.show(
+      id: id,
+      title: title,
+      body: body,
+      notificationDetails: notificationDetails(),
+      payload: payload,
+    );
   }
 }
