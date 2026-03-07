@@ -35,7 +35,7 @@ dependencies:
   google_fonts: ^8.0.0
   
   # Firebase Packages
-  firebase_core: ^4.4.0
+  firebase_core: ^4.5.0
   firebase_auth: ^6.1.4
 
   # Misc Packages
